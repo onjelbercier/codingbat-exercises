@@ -1,4 +1,4 @@
-package org.example;
+package com.bercier;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,18 +20,24 @@ public class HelloController {
 
     @Data
     static class Result {
-        private final int left;
-        private final int right;
-        private final long answer;
+        private  int left;
+        private  int right;
+        private  long answer;
+
+        public Result(int left, int right, long answer) {
+        }
     }
+
 
     // SQL sample
     @RequestMapping("calc")
-    Result calc(@RequestParam int left, @RequestParam int right) {
-        MapSqlParameterSource source = new MapSqlParameterSource()
-                .addValue("left", left)
-                .addValue("right", right);
-        return jdbcTemplate.queryForObject("SELECT :left + :right AS answer", source,
-                (rs, rowNum) -> new Result(left, right, rs.getLong("answer")));
+        Result calc(@RequestParam int left, @RequestParam int right) {
+//        MapSqlParameterSource source = new MapSqlParameterSource()
+//                .addValue("left", left)
+//                .addValue("right", right);
+//        return jdbcTemplate.queryForObject("SELECT :left + :right AS answer", source,
+//                (rs, rowNum) -> new Result(left, right, rs.getLong("answer")));
+        return new Result(left, right, 99999L);
     }
+
 }
