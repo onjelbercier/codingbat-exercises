@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 public class FirstLast6Test {
     @ParameterizedTest
-    //@CsvFileSource(resources = "/first-last-six-data.csv")
     @MethodSource("firstLast6DataStream")
     public void shouldReturnTrueIfSixIsFirstOrLastElement(int[] nums, boolean expectedResult ){
         FirstLast6 firstLast6 = new FirstLast6();
