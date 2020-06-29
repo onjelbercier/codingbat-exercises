@@ -11,7 +11,7 @@ public class CommonEnd {
 
         List<Integer> bList = Arrays.stream(b).boxed().collect(Collectors.toList());
 
-        return (a[0] == b[0] || a[a.length-1] == b[b.length-1]);
+        return (aList.get(0) == bList.get(0) || aList.get(a.length-1) == bList.get(b.length-1));
 
 
     }
