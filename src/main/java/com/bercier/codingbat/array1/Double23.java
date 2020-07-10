@@ -17,6 +17,7 @@ public class Double23 {
 
         final long numThrees = numsList.stream().filter(num -> num==3).count();
 
+
         return numTwos==2 || numThrees==2;
     }
 
