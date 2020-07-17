@@ -1,6 +1,6 @@
 package com.bercier.codingbat.array1;
 
-import java.lang.reflect.Array;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,9 +16,9 @@ public class Start1 {
 
         List<Integer> bList = Arrays.stream(b).boxed().collect(Collectors.toList());
 
-        final long findingOneA = aList.stream().filter(num -> num==1&&aList.size()>0).count();
+        final long findingOneA = aList.stream().filter(num -> num == 1).count();
 
-        final long findingOneB = bList.stream().filter(num -> num==1&&bList.size()>0).count();
+        final long findingOneB = bList.stream().filter(num -> num == 1).count();
 
         return findingOneA + findingOneB;
     }
