@@ -1,3 +1,5 @@
+package com.bercier.codingbat.array1;
+
 import com.bercier.codingbat.array1.MakeMiddle;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
