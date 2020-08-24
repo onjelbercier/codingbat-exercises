@@ -2,6 +2,7 @@ package com.bercier.codingbat.array2;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class No14 {
@@ -11,9 +12,25 @@ public class No14 {
 
     public boolean no14(int[] nums) {
 
-        List<Integer>numsList= Arrays.stream(nums).boxed().collect(Collectors.toList());
+        List<Integer> numsList= Arrays.stream(nums).boxed().collect(Collectors.toList());
 
-        boolean anyOnes = false;
+        Function<Long,Boolean> evaluateCount = num  -> {
+            boolean flag;
+
+            switch (num.intValue()) {
+                case 0: flag = true;
+                    break;
+                case 1: flag = true;
+                    break;
+                default: flag =false;
+            }
+
+            return flag;
+        };
+
+        return evaluateCount.apply(numsList.stream().map(num -> num==1 || num==4?num:-1).filter(num2 -> num2!=-1).distinct().count());
+
+        /*boolean anyOnes = false;
         boolean anyFours = false;
 
         for (Integer integer : numsList) {
@@ -28,7 +45,7 @@ public class No14 {
 
         }//end for
 
-        return !(anyOnes && anyFours);
+        return !(anyOnes && anyFours);*/
 
     }//end method
 
